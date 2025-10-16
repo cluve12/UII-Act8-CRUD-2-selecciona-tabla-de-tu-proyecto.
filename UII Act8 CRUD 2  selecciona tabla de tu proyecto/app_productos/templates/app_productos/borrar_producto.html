@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Producto - Subway</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .confirmation-container { max-width: 500px; margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 4px; }
+        .btn { margin: 5px; padding: 10px 15px; text-decoration: none; color: white; border: none; cursor: pointer; }
+        .eliminar { background-color: #DC3545; }
+        .cancelar { background-color: #6C757D; }
+    </style>
+</head>
+<body>
+    <h1>Eliminar Producto</h1>
+    <div class="confirmation-container">
+        <p>¿Estás seguro de que quieres eliminar el producto <strong>"{{ producto.nombre }}"</strong>?</p>
+        <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn eliminar">Sí, eliminar</button>
+            <a href="{% url 'inicio' %}" class="btn cancelar">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

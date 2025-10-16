@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Producto - Subway</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .detail-container { max-width: 500px; margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 4px; }
+        .detail-item { margin-bottom: 15px; }
+        .detail-label { font-weight: bold; color: #333; }
+        .btn { margin: 5px; padding: 10px 15px; text-decoration: none; color: white; display: inline-block; }
+        .volver { background-color: #6C757D; }
+    </style>
+</head>
+<body>
+    <h1>Detalles del Producto</h1>
+    <div class="detail-container">
+        <div class="detail-item">
+            <span class="detail-label">Nombre:</span> {{ producto.nombre }}
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Precio:</span> ${{ producto.precio }}
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Descripción:</span> {{ producto.descripcion }}
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Disponible:</span> {% if producto.disponible %}Sí{% else %}No{% endif %}
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">ID:</span> {{ producto.id }}
+        </div>
+    </div>
+    <a href="{% url 'inicio' %}" class="btn volver">Volver a la lista</a>
+</body>
+</html>
